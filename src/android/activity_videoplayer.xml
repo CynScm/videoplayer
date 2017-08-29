@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+							xmlns:tools="http://schemas.android.com/tools"
+							android:id="@+id/activity_local_vedio"
+							android:layout_width="match_parent"
+							android:orientation="vertical"
+							android:layout_height="match_parent"
+							tools:context="com.kf580.pluginvideoplayer.VideoPlayerActivity">
+	<com.shuyu.gsyvideoplayer.video.NormalGSYVideoPlayer
+		android:id="@+id/gsyVideoPlayer"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+	</com.shuyu.gsyvideoplayer.video.NormalGSYVideoPlayer>
+</LinearLayout>

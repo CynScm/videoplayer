@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-videoplayer-helper"
+    version="1.0.0">
+	<name>VideoPlayer</name>
+	<description>Cordova videoplayer Plugin</description>
+	<license>MIT</license>
+	<keywords>cordova,devid</keywords>
+	<repo>http://gitlab.kf580.com/android/cordova-plugin-videoplayer-helper.git</repo>
+
+	<!-- JS文件 -->
+	<js-module src="www/videoPlayer.js" name="VideoPlayer">
+		<clobbers target="window.videoPlayerHelper" />
+	</js-module>
+
+	<!-- android -->
+	<!-- 定义插件的android入口 -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="VideoPlayer">
+				<param name="android-package" value="com.kf580.pluginvideoplayer.VideoPlayerCdvPlugin" />
+			</feature>
+		</config-file>
+	
+		<!-- AndroidManifest -->
+		<config-file target="AndroidManifest.xml" parent="/*">
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+			<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+			<uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="application">
+			<activity android:name="com.kf580.pluginvideoplayer.VideoPlayerActivity"
+								android:configChanges="orientation|screenSize"
+								android:screenOrientation="portrait"
+								android:theme="@android:style/Theme.NoTitleBar">
+			</activity>
+		</config-file>
+		<!-- java源文件 -->
+		<source-file src="src/android/VideoPlayerActivity.java"
+			target-dir="src/com/kf580/pluginvideoplayer" />
+		<source-file src="src/android/VideoPlayerCdvPlugin.java"
+			target-dir="src/com/kf580/pluginvideoplayer" />
+		<resource-file src="src/android/activity_videoplayer.xml" 				
+			target="res/layout/activity_videoplayer.xml" />
+		<framework src="com.shuyu:GSYVideoPlayer:2.0.2" />
+
+	</platform>
+</plugin>		
+
